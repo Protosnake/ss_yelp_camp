@@ -20,10 +20,12 @@
           <h4><a><%= camp.name %></a></h4>
           <p><%= camp.description %></p>
           <p><em>Submitted by <%= camp.author.username %></em></p>
-          <a class="btn btn-warning" href="/camps/camp/<%=camp._id%>/edit">Edit camp!</a>
-          <form id="delete-form" class="" action="/camps/camp/<%=camp._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
-          </form>
+          <% if (currentUser && camp.author.id.equals(currentUser._id)) { %>
+            <a class="btn btn-warning" href="/camps/camp/<%=camp._id%>/edit">Edit camp!</a>
+            <form id="delete-form" class="" action="/camps/camp/<%=camp._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          <% } %>
         </div>
       </div>
       <div class="well">
@@ -39,6 +41,7 @@
               <p>
                 <%=comment.text%>
               </p>
+              <a class="btn btn-xs btn-warning" href="/camps/camp/<%= camp._id %>/comments/<%= comment._id %>/edit">Edit</a>
             </div>
           </div>
         <% }); %>
