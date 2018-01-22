@@ -1,3 +1,14 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#content {
+  color: white;
+  text-align: center;
+  padding-top: 25%;
+}
+
 .thumbnail img {
   width: 100%;
 }
@@ -12,4 +23,28 @@
 
 #delete-form {
   display: inline;
+}
+
+.background {
+  background-image: url(../images/larry-chen-30069.jpg);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#form {
+  width: 20%;
+}
+
+#form h1 a p{
+  text-align: center;
+}
+
+#form button{
+  width: 100%;
 }
