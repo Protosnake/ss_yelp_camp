@@ -41,10 +41,6 @@ body, html {
   width: 20%;
 }
 
-#form h1 a p{
-  text-align: center;
-}
-
-#form button{
+.btn-wide {
   width: 100%;
 }
