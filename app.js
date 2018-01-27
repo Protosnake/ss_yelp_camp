@@ -16,14 +16,23 @@ var commentRoutes = require('./routes/comments'),
     indexRoutes   = require('./routes/index');
 
 // seedDb();
+//connecting to the DB
 mongoose.connect("mongodb://localhost/yelp_camp", {
   useMongoClient: true
 });
 
 app.use(bodyParser.urlencoded({extended: "true"}));
+//adding public folder
 app.use(express.static(__dirname + "/public"));
+//adding bootstrap
+app.use(express.static(__dirname + "/node_modules/bootstrap/dist"));
+//adding jquery
+app.use(express.static(__dirname + "/node_modules/jquery"));
+//adding method override to get access for e.g. PUT and DELETE methods
 app.use(methodOverride("_method"));
+//setting view engine for ejs
 app.set("view engine", "ejs");
+//adding flash as feedback messages
 app.use(flash());
 
 passport.use(new LocalStrategy(User.authenticate()));
