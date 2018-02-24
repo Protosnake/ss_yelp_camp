@@ -1,16 +1,22 @@
 <% include partials/header %>
 
 <div id="form" class="container">
-  <h1>Create your account!</h1>
+  <h1 class="text-center">Create your account!</h1>
   <form action="/register" method="post">
     <div class="form-group">
+      <label for="username">Username</label>
       <input type="text" name="username" placeholder="Your username goes here" class="form-control">
     </div>
     <div class="form-group">
+      <label for="password">Passowrd</label>
       <input type="password" name="password" placeholder="Your password goes here" class="form-control">
     </div>
     <div class="form-group">
       <button class="btn btn-primary form-control">Sign up!</button>
+    </div>
+    <div class="text-center">
+      <p>Already have an account?</p>
+      <a href="/login">Log in here!</a>
     </div>
   </form>
 </div>

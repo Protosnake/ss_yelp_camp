@@ -15,7 +15,7 @@ var commentRoutes = require('./routes/comments'),
     campsRoutes   = require('./routes/camps'),
     indexRoutes   = require('./routes/index');
 
-// seedDb();
+seedDb();
 //connecting to the DB
 mongoose.connect("mongodb://localhost/yelp_camp", {
   useMongoClient: true
@@ -56,6 +56,10 @@ app.use(function (req, res, next) {
 app.use(indexRoutes);
 app.use("/camps/camp/:id/comments", commentRoutes);
 app.use("/camps", campsRoutes);
+
+app.use(function(req, res, next){
+    res.status(404).render('404', {title: "Sorry, page not found"});
+});
 
 app.listen(3000, function (error) {
   if(error) {
