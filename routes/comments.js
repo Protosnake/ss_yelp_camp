@@ -34,7 +34,6 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
       comment.save();
       camp.comments.push(comment);
       camp.save();
-      console.log(comment);
       res.redirect("/camps/camp/" + camp._id);
     });
   })

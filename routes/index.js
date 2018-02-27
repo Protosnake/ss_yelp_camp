@@ -6,13 +6,7 @@ var fs = require('fs');
 
 
 router.get('/', function (req, res) {
-  // console.log(path.join(__dirname, 'public/images'));
-  // fs.readdir(path.join(__dirname, 'public/images'), function (err, files) {
-  //   console.log(files);
-  //   res.render("landing", {images: files});
-  // })
   images = fs.readdir(__dirname + "/../public/images", function (err, images) {
-    console.log(images);
     res.render("landing", {images: images});
   });
 
